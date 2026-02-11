@@ -1,0 +1,159 @@
+import React, { useState } from 'react';
+
+const styles = {
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    backgroundColor: '#f8fafc', 
+    fontFamily: '"Inter", sans-serif',
+  },
+  card: {
+    backgroundColor: '#ffffff',
+    padding: '40px',
+    borderRadius: '16px', 
+    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+    width: '100%',
+    maxWidth: '400px',
+    border: '1px solid #e2e8f0', 
+  },
+  title: { 
+    textAlign: 'center', 
+    color: '#0f172a', 
+    marginBottom: '8px', 
+    fontSize: '32px', 
+    fontWeight: '800', 
+    letterSpacing: '-0.5px' 
+  },
+  subtitle: { textAlign: 'center', color: '#64748b', marginBottom: '32px', fontSize: '14px' },
+  inputGroup: { marginBottom: '20px', position: 'relative' }, 
+  label: { display: 'block', marginBottom: '8px', fontWeight: '600', color: '#334155', fontSize: '13px' },
+  input: {
+    width: '100%',
+    padding: '12px 16px',
+    borderRadius: '8px',
+    border: '1px solid #cbd5e1',
+    fontSize: '16px',
+    boxSizing: 'border-box',
+    transition: 'border-color 0.2s ease',
+  },
+
+  toggleBtn: {
+    position: 'absolute',
+    right: '12px',
+    top: '38px', 
+    background: 'none',
+    border: 'none',
+    color: '#6366f1',
+    fontSize: '11px',
+    fontWeight: '700',
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+  },
+  button: {
+    width: '100%',
+    padding: '14px',
+    backgroundColor: '#6366f1', 
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '16px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    marginTop: '10px',
+    boxShadow: '0 4px 6px -1px rgba(99, 102, 241, 0.4)',
+  },
+  footer: { textAlign: 'center', marginTop: '24px', fontSize: '14px', color: '#64748b' },
+  link: { color: '#6366f1', cursor: 'pointer', fontWeight: '600', marginLeft: '5px' }
+};
+
+const Signup = ({ onNavigate }) => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: ''
+  });
+
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Account created for ${formData.fullName}!`);
+  };
+
+  return (
+    <main style={styles.wrapper}>
+      <section style={styles.card}>
+        <h1 style={styles.title}>TrueEntry</h1>
+        <p style={styles.subtitle}>Create your account</p>
+
+        <form onSubmit={handleSubmit}>
+          <div style={styles.inputGroup}>
+            <label htmlFor="fullName" style={styles.label}>Full Name</label>
+            <input 
+              id="fullName"
+              type="text" 
+              placeholder="Enter your name" 
+              style={styles.input}
+              value={formData.fullName}
+              onChange={handleChange}
+              required 
+            />
+          </div>
+
+          <div style={styles.inputGroup}>
+            <label htmlFor="email" style={styles.label}>Work Email</label>
+            <input 
+              id="email"
+              type="email" 
+              placeholder="you@company.com" 
+              style={styles.input}
+              value={formData.email}
+              onChange={handleChange}
+              required 
+            />
+          </div>
+
+          <div style={styles.inputGroup}>
+            <label htmlFor="password" style={styles.label}>Password</label>
+            <input 
+              id="password"
+              // Dynamically switch type based on state
+              type={showPassword ? "text" : "password"} 
+              placeholder="Create a password" 
+              style={{ ...styles.input, paddingRight: '60px' }} 
+              value={formData.password}
+              onChange={handleChange}
+              required 
+            />
+            
+            <button 
+              type="button" 
+              style={styles.toggleBtn} 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+
+          <button type="submit" style={styles.button}>Create Account</button>
+        </form>
+
+        <div style={styles.footer}>
+          <span>Already have an account?</span>
+          <span style={styles.link} onClick={onNavigate}>
+            Sign In
+          </span>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Signup;
