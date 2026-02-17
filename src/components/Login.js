@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from './Button';
+import Card from './Card';
 
 const styles = {
   wrapper: { display: 'flex', 
@@ -7,25 +9,6 @@ const styles = {
     height: '100vh', 
     backgroundColor: '#f8fafc', 
     fontFamily: '"Inter", sans-serif' 
-},
-  card: { backgroundColor: '#ffffff',
-    padding: '48px 40px', 
-    borderRadius: '16px', 
-    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)', 
-    width: '100%', 
-    maxWidth: '420px', 
-    border: '1px solid #e2e8f0' 
-},
-  title: { textAlign: 'center', 
-    color: '#0f172a', 
-    marginBottom: '8px', 
-    fontSize: '32px', 
-    fontWeight: '800' 
-},
-  subtitle: { textAlign: 'center', 
-    color: '#64748b', 
-    marginBottom: '32px', 
-    fontSize: '15px' 
 },
   inputGroup: { marginBottom: '20px', 
     position: 'relative' 
@@ -96,10 +79,11 @@ const Login = ({ onNavigate }) => {
 
   return (
     <main style={styles.wrapper}>
-      <section style={styles.card}>
-        <h1 style={styles.title}>Smart IoT Decibel Meter</h1>
-        <p style={styles.subtitle}>Sign in to monitor decibel readings and device status.</p>
-
+      <Card
+        title="Smart IoT Decibel Meter"
+        subtitle="Sign in to monitor decibel readings and device status."
+        elevation="medium"
+      >
         <form onSubmit={(e) => e.preventDefault()}>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Email Address</label>
@@ -121,7 +105,9 @@ const Login = ({ onNavigate }) => {
             </button>
           </div>
 
-          <button type="submit" style={styles.button}>Login</button>
+          <Button type="submit" variant="primary" fullWidth style={{ marginTop: '12px' }}>
+            Login
+          </Button>
         </form>
 
         {/* 2. DYNAMIC RENDERING: Using the systemStatus object */}
@@ -140,7 +126,7 @@ const Login = ({ onNavigate }) => {
             Create Account
           </span>
         </div>
-      </section>
+      </Card>
     </main>
   );
 };

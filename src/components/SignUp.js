@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from './Button';
+import Card from './Card';
 
 const styles = {
   wrapper: {
@@ -89,10 +91,11 @@ const Signup = ({ onNavigate }) => {
 
   return (
     <main style={styles.wrapper}>
-      <section style={styles.card}>
-        <h1 style={styles.title}>Smart IoT Decibel Meter</h1>
-        <p style={styles.subtitle}>Create your account</p>
-
+      <Card
+        title="Smart IoT Decibel Meter"
+        subtitle="Create your account"
+        elevation="medium"
+      >
         <form onSubmit={handleSubmit}>
           <div style={styles.inputGroup}>
             <label htmlFor="fullName" style={styles.label}>Full Name</label>
@@ -124,7 +127,6 @@ const Signup = ({ onNavigate }) => {
             <label htmlFor="password" style={styles.label}>Password</label>
             <input 
               id="password"
-              // Dynamically switch type based on state
               type={showPassword ? "text" : "password"} 
               placeholder="Create a password" 
               style={{ ...styles.input, paddingRight: '60px' }} 
@@ -142,7 +144,9 @@ const Signup = ({ onNavigate }) => {
             </button>
           </div>
 
-          <button type="submit" style={styles.button}>Create Account</button>
+          <Button type="submit" variant="primary" fullWidth style={{ marginTop: '10px' }}>
+            Create Account
+          </Button>
         </form>
 
         <div style={styles.footer}>
@@ -151,7 +155,7 @@ const Signup = ({ onNavigate }) => {
             Sign In
           </span>
         </div>
-      </section>
+      </Card>
     </main>
   );
 };
