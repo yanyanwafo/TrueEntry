@@ -97,13 +97,13 @@ const Login = ({ onNavigate }) => {
   return (
     <main style={styles.wrapper}>
       <section style={styles.card}>
-        <h1 style={styles.title}>TrueEntry</h1>
-        <p style={styles.subtitle}>Enter your credentials to access the ticketing vault.</p>
+        <h1 style={styles.title}>Smart IoT Decibel Meter</h1>
+        <p style={styles.subtitle}>Sign in to monitor decibel readings and device status.</p>
 
         <form onSubmit={(e) => e.preventDefault()}>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Email Address</label>
-            <input type="email" style={styles.input} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@trueentry.com" required />
+            <input type="email" style={styles.input} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@smartiot.com" required />
           </div>
 
           <div style={styles.inputGroup}>

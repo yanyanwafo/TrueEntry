@@ -90,7 +90,7 @@ const Signup = ({ onNavigate }) => {
   return (
     <main style={styles.wrapper}>
       <section style={styles.card}>
-        <h1 style={styles.title}>TrueEntry</h1>
+        <h1 style={styles.title}>Smart IoT Decibel Meter</h1>
         <p style={styles.subtitle}>Create your account</p>
 
         <form onSubmit={handleSubmit}>
