@@ -36,17 +36,6 @@ const styles = {
     fontWeight: '700', 
     cursor: 'pointer' 
 },
-  button: { width: '100%', 
-    padding: '14px', 
-    backgroundColor: '#6366f1', 
-    color: 'white', 
-    border: 'none', 
-    borderRadius: '8px', 
-    fontSize: '16px', 
-    fontWeight: '600', 
-    cursor: 'pointer', 
-    marginTop: '12px' 
-},
   statusBox: { marginTop: '24px', 
     padding: '12px', 
     borderRadius: '8px', 
