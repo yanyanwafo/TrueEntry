@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       {view === 'login' ? (
-        <Login onNavigate={() => setView('signup')} />
+        <Login onNavigate={() => setView('signup')} onAuthSuccess={() => setView('dashboard')} />
       ) : view === 'signup' ? (
-        <Signup onNavigate={() => setView('login')} />
+        <Signup onNavigate={() => setView('login')} onAuthSuccess={() => setView('dashboard')} />
       ) : (
         <Dashboard onLogout={() => setView('login')} />
       )}

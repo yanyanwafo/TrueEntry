@@ -39,7 +39,7 @@ const styles = {
   link: { color: '#6366f1', cursor: 'pointer', fontWeight: '600', marginLeft: '5px' }
 };
 
-const Signup = ({ onNavigate }) => {
+const Signup = ({ onNavigate, onAuthSuccess }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -55,7 +55,9 @@ const Signup = ({ onNavigate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // TODO: replace with real sign-up flow
     alert(`Account created for ${formData.fullName}!`);
+    if (onAuthSuccess) onAuthSuccess();
   };
 
   return (

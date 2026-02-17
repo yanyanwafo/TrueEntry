@@ -53,7 +53,7 @@ const styles = {
 }
 };
 
-const Login = ({ onNavigate }) => {
+const Login = ({ onNavigate, onAuthSuccess }) => {
   // 1. DYNAMIC DATA: Local object simulating system status
   const systemStatus = {
     server: "Online",
@@ -66,6 +66,12 @@ const Login = ({ onNavigate }) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) return;
+    if (onAuthSuccess) onAuthSuccess();
+  };
+
   return (
     <main style={styles.wrapper}>
       <Card
@@ -73,7 +79,7 @@ const Login = ({ onNavigate }) => {
         subtitle="Sign in to monitor decibel readings and device status."
         elevation="medium"
       >
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Email Address</label>
             <input type="email" style={styles.input} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@smartiot.com" required />
