@@ -20,7 +20,7 @@ const Button = ({
 
   const variantStyles = {
     primary: {
-      backgroundColor: '#6366f1',
+      backgroundColor: '#6366f0',
       color: 'white',
       boxShadow: '0 4px 6px -1px rgba(99, 102, 241, 0.4)',
     },
