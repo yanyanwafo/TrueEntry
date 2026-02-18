@@ -54,7 +54,7 @@ const styles = {
 };
 
 const Login = ({ onNavigate, onAuthSuccess }) => {
-  // 1. DYNAMIC DATA: Local object simulating system status
+  
   const systemStatus = {
     server: "Online",
     version: "v2.4.1",
@@ -105,7 +105,7 @@ const Login = ({ onNavigate, onAuthSuccess }) => {
           </Button>
         </form>
 
-        {/* 2. DYNAMIC RENDERING: Using the systemStatus object */}
+        
         <div style={styles.statusBox}>
           <span>
             <span style={{ ...styles.indicator, backgroundColor: systemStatus.color }}></span>

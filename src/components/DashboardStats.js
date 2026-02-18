@@ -10,7 +10,7 @@ export default function DashboardStats({ sensors = [], violations = [] }) {
   });
 
   useEffect(() => {
-    // Calculate stats with animation
+    
     setAnimating(true);
     const timer = setTimeout(() => {
       const violationCount = violations.filter(v => v.level > 60).length;
