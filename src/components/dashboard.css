@@ -7,18 +7,44 @@
 
 .dashboard-header {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 24px;
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin-bottom: 24px;
+  gap: 16px;
 }
 
 .dashboard-header h1 {
   margin: 0;
   font-size: 28px;
   font-weight: 800;
+}
+
+.header-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.welcome-user {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.dashboard-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
 }
 
 .header-controls {
@@ -68,13 +94,10 @@
   transform: scale(0.98);
 }
 
-.dashboard {
+.dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 20px;
-  padding: 20px;
-  max-width: 1600px;
-  margin: 0 auto;
 }
 
 .section {
@@ -92,14 +115,14 @@
 }
 
 .section h2 {
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
   font-size: 18px;
   font-weight: 700;
   color: #fff;
 }
 
 .monitoring-overview {
-  grid-column: span 1;
+  grid-column: span 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,19 +133,23 @@
 }
 
 .monitoring-overview p {
-  margin: 12px 0 0 0;
+  margin: 12px 0 0;
   color: #a0a0b0;
   font-size: 14px;
 }
 
 .section.full-width {
-  grid-column: 1 / -1;
+  grid-column: span 8;
 }
 
 .sensor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
+}
+
+.section.violations {
+  grid-column: span 12;
 }
 
 .violations-header {
@@ -181,14 +208,17 @@
   padding: 24px 0;
 }
 
-.section.violations {
-  grid-column: span 1;
+@media (max-width: 1024px) {
+  .monitoring-overview,
+  .section.full-width,
+  .section.violations {
+    grid-column: span 12;
+  }
 }
 
 @media (max-width: 768px) {
-  .dashboard-header {
+  .header-inner {
     flex-direction: column;
-    gap: 16px;
     text-align: center;
   }
 
@@ -196,12 +226,12 @@
     font-size: 22px;
   }
 
-  .dashboard {
-    grid-template-columns: 1fr;
-    padding: 12px;
+  .dashboard-content {
+    padding: 0 12px 16px;
   }
 
   .sensor-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
+
